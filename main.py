@@ -5,12 +5,13 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from passlib.context import CryptContext
+import os
 
 # Configuración de logs
 logging.basicConfig(level=logging.DEBUG)
 
 # Configuración de la base de datos
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./sofutu_ai.db")
+DATABASE_URL = os.getenv("postgresql://sofutu_ai_db_user:1z9m2km53znqorHOAj380ChYgs04Gmpl@dpg-cv1ak452ng1s73874sog-a/sofutu_ai_dbr")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
